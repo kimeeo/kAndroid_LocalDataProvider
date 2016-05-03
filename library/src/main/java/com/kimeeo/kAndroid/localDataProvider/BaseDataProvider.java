@@ -14,16 +14,16 @@ import java.util.List;
 /**
  * Created by bhavinpadhiyar on 1/30/16.
  */
-abstract public class BaseDataManager extends PermissionsBasedDataProvider {
+abstract public class BaseDataProvider extends PermissionsBasedDataProvider {
 
     protected abstract Class<DataModel> getDataModel();
     abstract protected InputStream getNextInputStream(Context context) throws Exception;
     abstract protected InputStream getRefreshInputStream(Context context) throws Exception;
 
     protected Gson gson;
-    private static final String LOG_TAG= "BaseDataManager";
+    private static final String LOG_TAG= "BaseDataProvider";
     protected Context context;
-    public BaseDataManager(Context context) {
+    public BaseDataProvider(Context context) {
         super(context);
         this.context = context;
         gson= new Gson();

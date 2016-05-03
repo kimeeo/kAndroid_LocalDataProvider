@@ -3,21 +3,17 @@ package com.kimeeo.kAndroid.localDataProvider;
 import android.Manifest;
 import android.content.Context;
 
-import com.gun0912.tedpermission.PermissionListener;
-import com.kimeeo.kAndroid.listViews.dataProvider.DataModel;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 /**
  * Created by bhavinpadhiyar on 2/15/16.
  */
 
-abstract public class FileDataManager extends BaseDataManager
+abstract public class FileDataProvider extends BaseDataProvider
 {
     @Override
     final protected InputStream getNextInputStream(Context context) throws Exception {
@@ -29,19 +25,19 @@ abstract public class FileDataManager extends BaseDataManager
         return null;
     }
 
-    public FileDataManager(Context context) {
+    public FileDataProvider(Context context) {
         super(context);
     }
 
-    protected abstract String getNextURL();
-    protected String getRefreshURL() {
+    protected abstract String getNextPath();
+    protected String getRefreshPath() {
         return null;
     }
 
     @Override
     protected void invokeLoadNext()
     {
-        String url =getNextURL();
+        String url =getNextPath();
         if(url!=null) {
             File file = new File(url);
             if (file.exists() && file.isDirectory() == false) {
@@ -63,7 +59,7 @@ abstract public class FileDataManager extends BaseDataManager
 
     @Override
     protected void invokeLoadRefresh() {
-        String url =getRefreshURL();
+        String url =getRefreshPath();
         if(url!=null) {
             File file = new File(url);
             if (file.exists() && file.isDirectory() == false) {
