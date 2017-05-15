@@ -3,9 +3,9 @@ package com.kimeeo.kAndroid.localDataProvider;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.kimeeo.kAndroid.listViews.dataProvider.DataModel;
-import com.kimeeo.kAndroid.listViews.dataProvider.IParseableObject;
-import com.kimeeo.kAndroid.listViews.dataProvider.PermissionsBasedDataProvider;
+import com.kimeeo.kAndroid.dataProvider.DataModel;
+import com.kimeeo.kAndroid.dataProvider.IParseableObject;
+import com.kimeeo.kAndroid.dataProvider.PermissionsBasedDataProvider;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
